@@ -1,5 +1,6 @@
 pragma solidity ^0.5.9;
 
+
 contract KYC{
     
     address admin;  
@@ -48,28 +49,28 @@ contract KYC{
     event RequestDenied(address bank );
 /* Mapping customer username to Customer struct and keeping an array of all keys of the mapping to loop thru' when required.*/
 
-mapping(string => Customer)  customers;
+mapping(string => Customer) public customers;
 string[] customerNames;
 
 /* Mapping customer username to Final Customer struct and keeping an array of all keys of the mapping to loop thru'*/ 
-mapping(string => FinalCustomer)  finalcustomers;
+mapping(string => FinalCustomer) public finalcustomers;
 string[] final_customerList;
 
 /* Mapping bank's address to the bank struct and also keeping an array of all keys of the mapping.*/
 
-mapping(address => Bank)  banks;
+mapping(address => Bank) public banks;
 address[] bankAddresses;
 
 /* Mapping a customers data hash to the KYC request captured for that customer and keeps a track of every KYCrequest initiated for a customer by a bank*/
 
-mapping(string => KYCRequest)  KycRequests;
+mapping(string => KYCRequest) public KycRequests;
 string[] customerDataList;
 
 
 
 /* Mapping a customer's username with a bank's address, used to keep a track of every upvote given by a bank to a customer*/
 
-mapping(string => mapping(address => uint256))  upVotes;
+mapping(string => mapping(address => uint256)) public upVotes;
 
  /**
      * Constructor of the contract.
